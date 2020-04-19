@@ -7,7 +7,7 @@ node {
         ], doGenerateSubmoduleConfigurations: false, extensions: [
             [$class: 'WipeWorkspace']
         ], submoduleCfg: [], userRemoteConfigs: [
-            [credentialsId: 'jenkins-ssh-github',
+            [credentialsId: 'jenkins-github-ssh',
             url: 'git@github.com:figaw/configuration-as-code-jenkins-k8s-pipeline.git']
         ]
     ]
@@ -20,7 +20,7 @@ node {
             configFileProvider([configFile(fileId: 'auth-json', targetLocation: 'auth.json')]) {
 
                 echo "this is where I would authenticate my session using my file"
-                echo $WORKSPACE/auth.json
+                sh "cat ${WORKSPACE}/auth.json"
 
             }
 
