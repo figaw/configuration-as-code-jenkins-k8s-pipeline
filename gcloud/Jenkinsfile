@@ -29,9 +29,6 @@ node {
         stage('Create instance') {
             echo "Do something on gcloud, create machines etc."
         }
-        stage('Build my project') {
-            sh './build.sh'
-        }
     } catch (err) {
         echo "Failed: ${err}"
         throw err
